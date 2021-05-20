@@ -14,11 +14,13 @@ assert "疫情" in driver.title
 count = 0
 pages = 0
 fileName = 'covid_{:0>6d}.txt'.format(count)
+# 改为待保存目录
 saveDir = r'/Users/fellno/0/Code/PyCharmProjects/DataMining/DataSets/TouTiao/疫情'
 news_content = []
 
 while 1:
     try:
+        # 显式等待页面加载
         element = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.TAG_NAME, "h2")))
         title = driver.find_elements_by_tag_name("h2")
         contents = driver.find_elements_by_class_name("entry")
